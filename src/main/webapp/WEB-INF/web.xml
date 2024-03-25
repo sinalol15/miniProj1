@@ -11,22 +11,22 @@
   </welcome-file-list>
   
 	<servlet>
-		<servlet-name>MmemberServlet</servlet-name>
-		<servlet-class>com.msa2024.member.MmemberServlet</servlet-class>
+		<servlet-name>MmemberServlet1</servlet-name>
+		<servlet-class>com.msa2024.member.MmemberServlet1</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>MmemberServlet</servlet-name>
+		<servlet-name>MmemberServlet1</servlet-name>
 		<url-pattern>/members1</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>MboardServlet</servlet-name>
-		<servlet-class>com.msa2024.board.MboardServlet</servlet-class>
+		<servlet-name>MboardServlet1</servlet-name>
+		<servlet-class>com.msa2024.board.MboardServlet1</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>MboardServlet</servlet-name>
+		<servlet-name>MboardServlet1</servlet-name>
 		<url-pattern>/boards1</url-pattern>
 	</servlet-mapping>
   

@@ -15,6 +15,9 @@ public class MmemberVO1 {
 	private String mid;
 	private String mpassword;
 	private String mname;
+	private String mhabbit1;
+	private String mhabbit2;
+	private String mhabbit3;
 	private int    mage;
 	private String memail;
 	

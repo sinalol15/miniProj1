@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.msa2024.member.MmemberService1;
 import com.msa2024.member.vo.MmemberVO1;
 
 /**
@@ -175,9 +174,9 @@ public class MmemberController1 extends HttpServlet {
   			}
   			
   		} else {
-  			return "redirect:user.do?action=loginForm&err=invalidUserId";
+  			return "redirect:members1?action=loginForm&err=invalidUserId";
   		}
-  		return "redirect:boards?action=list";
+  		return "redirect:boards1?action=list";
   	}
   	
   	public Object logout(HttpServletRequest request) {
