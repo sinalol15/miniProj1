@@ -17,7 +17,6 @@ import com.msa2024.member.vo.MmemberVO1;
 /**
  * Servlet implementation class MmemberServlet
  */
-@WebServlet("/MmemberServlet")
 public class MmemberServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

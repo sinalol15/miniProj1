@@ -49,7 +49,6 @@ public class MmemberController1 extends HttpServlet {
   		System.out.println("상세보기");
   		//String userid = request.getParameter("userid");
   		//1. 처리
-  		
   		//2. jsp출력할 값 설정
   		request.setAttribute("user", memberService.view(member));
   		return "view";
@@ -158,7 +157,7 @@ public class MmemberController1 extends HttpServlet {
   			session.setAttribute("loginVO", loginVO);
   			session.setMaxInactiveInterval(30*60*1000);
   			
-  			if (member.getAutologin().equals("Y")) {
+  			if ("Y".equals(member.getAutologin())) {
   				//1. UUID를 생성하여 사용자 테이블의 uuid를 변경한다.
   				String uuid = UUID.randomUUID().toString();
   				member.setMuuid(uuid);

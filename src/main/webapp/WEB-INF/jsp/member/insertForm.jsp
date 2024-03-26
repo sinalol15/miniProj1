@@ -29,9 +29,9 @@
         <label>나이: </label>    <input type="text" id="mage" name="mage" required="required"><br/>
         <label>이메일: </label>  <input type="text" id="memail" name="memail" required="required"><br/>
         <h4>취미: </h4>
-        <label>게임</label><input type="checkbox" id="mhabbit1" value="게임"><br/>
-        <label>책 읽기</label><input type="checkbox" id="mhabbit2" value="책 읽기"><br/>
-        <label>운동</label><input type="checkbox" id="mhabbit3" value="운동"><br/>
+        <label>게임</label><input type="checkbox" id="mhabbit1" name="mhabbit1" value="1"><br/>
+        <label>책 읽기</label><input type="checkbox" id="mhabbit2" name="mhabbit2" value="2"><br/>
+        <label>운동</label><input type="checkbox" id="mhabbit3" name="mhabbit3" value="3"><br/>
         
 	    <div>
 	        <input type="submit" value="등록">
@@ -72,7 +72,7 @@
 			if(json.status == 0) {
 				//성공
 				alert("회원가입을 성공 하였습니다");
-				location = "members1?action=list";
+				location = "members1?action=loginForm";
 			} else {
 				alert(json.statusMessage);
 			}

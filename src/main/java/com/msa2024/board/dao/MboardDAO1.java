@@ -8,7 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.msa2024.board.vo.MboardVO1;
+import com.msa2024.member.vo.MmemberVO1;
 
 public class MboardDAO1 {
 	private static Connection conn = null;
@@ -39,7 +43,7 @@ public class MboardDAO1 {
 
             boardListPstmt = conn.prepareStatement("select * from TB_BOARD order by tbno");
             boardListPstmt2 = conn.prepareStatement("select * from TB_BOARD where tbtitle like ? order by tbno");
-            boardInsertPstmt = conn.prepareStatement("insert into TB_BOARD (tbno, tbtitle, tbcontent, tbwriter) values (seq_bno.nextval, ?, ?, ?)");
+            boardInsertPstmt = conn.prepareStatement("insert into TB_BOARD (tbno, tbtitle, tbcontent, tbwriter, tmid) values (seq_bno.nextval, ?, ?, ?, ?)");
             boardDetailPstmt = conn.prepareStatement("select * from TB_BOARD where tbno = ?");
             //delete 가 되지 않았던 이유: ? 개수에 맞춰서 setString() 을 해주어야 한다.
             boardDeletePstmt = conn.prepareStatement("delete from TB_BOARD where tbno = ?");
@@ -87,6 +91,7 @@ public class MboardDAO1 {
             boardInsertPstmt.setString(1, board.getTbtitle());
             boardInsertPstmt.setString(2, board.getTbcontent());
             boardInsertPstmt.setString(3, board.getTbwriter());
+            boardInsertPstmt.setString(4, board.getTmid());
             updated = boardInsertPstmt.executeUpdate();
             conn.commit();
         }catch (Exception e){
@@ -107,6 +112,7 @@ public class MboardDAO1 {
                         , rs.getString("tbcontent")
                         , rs.getString("tbwriter")
                         , rs.getString("tbdate"));
+                board.setTmid(rs.getString("tmid"));
             }
             rs.close();
 
@@ -135,9 +141,9 @@ public class MboardDAO1 {
         int updated = 0;
 
         try {
-            boardDeletePstmt.setInt(1, board.getTbno());
-            updated = boardDeletePstmt.executeUpdate();
-            conn.commit();
+	        boardDeletePstmt.setInt(1, board.getTbno());
+	        updated = boardDeletePstmt.executeUpdate();
+	        conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

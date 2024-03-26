@@ -21,6 +21,7 @@ public class MmemberDAO1 {
     private static PreparedStatement memberListPstmt = null;
     private static PreparedStatement memberListPstmt2 = null;
     private static PreparedStatement memberInsertPstmt = null;
+    private static PreparedStatement memberInsertPstmt2 = null;
     private static PreparedStatement memberDeletePstmt = null;
     private static PreparedStatement memberDetailPstmt = null;
     private static PreparedStatement memberFromUUIDPstmt = null; //uuid를 이용하여 사용자 정보를 얻는다.
@@ -50,7 +51,8 @@ public class MmemberDAO1 {
 
             memberListPstmt = conn.prepareStatement("select * from tb_member order by mid");
             memberListPstmt2 = conn.prepareStatement("select * from tb_member where mname like ? order by mid");
-            memberInsertPstmt = conn.prepareStatement("insert into tb_member (mid, mname, mpassword, mage, memail) values (?, ?, ?, ?,?)");
+            memberInsertPstmt = conn.prepareStatement("insert into tb_member (mid, mname, mpassword, mage, memail) values (?, ?, ?, ?, ?)");
+            memberInsertPstmt2 = conn.prepareStatement("insert into tb_mhabbit (mhid, mhnumber) values (?, ?)");
             memberDetailPstmt = conn.prepareStatement("select * from tb_member where mid=?");
             
             memberFromUUIDPstmt = conn.prepareStatement("select * from tb_member where muuid=?");
@@ -107,6 +109,23 @@ public class MmemberDAO1 {
             memberInsertPstmt.setInt(4, members.getMage());
             memberInsertPstmt.setString(5, members.getMemail());
             updated = memberInsertPstmt.executeUpdate();
+            
+            if (members.getMhabbit1() != null) {
+	            memberInsertPstmt2.setString(1, members.getMid());
+	            memberInsertPstmt2.setString(2, members.getMhabbit1());
+	            memberInsertPstmt2.executeUpdate();
+            }
+            if (members.getMhabbit2() != null) {
+	            memberInsertPstmt2.setString(1, members.getMid());
+	            memberInsertPstmt2.setString(2, members.getMhabbit2());
+	            memberInsertPstmt2.executeUpdate();
+            }
+            if (members.getMhabbit3() != null) {
+	            memberInsertPstmt2.setString(1, members.getMid());
+	            memberInsertPstmt2.setString(2, members.getMhabbit3());
+	            memberInsertPstmt2.executeUpdate();
+            }
+            
             conn.commit();
         }catch (Exception e){
             e.printStackTrace();

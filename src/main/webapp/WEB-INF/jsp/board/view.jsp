@@ -26,6 +26,7 @@
 	<label>내용 : ${board.tbcontent}</label><br/>
 	<label>작성자 : ${board.tbwriter}</label><br/>
 	<label>작성일 : ${board.tbdate}</label><br/>
+	<label>작성일 : ${board.tmid}</label><br/>
 
 	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	
@@ -35,8 +36,12 @@
 		
 		viewForm.submit();
 	}
-	
-	function jsDelete() {
+	//tmid
+	function jsDelete(a, b) {
+		if(a != b){
+			alert("아이디가 일치하지 않습니다.");
+			return;
+		}
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			/*
 			//서버의 URL을 설정한다 
@@ -71,7 +76,7 @@
 		<input type="hidden" id="action" name="action" value="">
 		<input type="hidden" name="tbno" value="${board.tbno}">
 		<input type="button" value="목록" onclick="jsList()">
-		<input type="button" value="삭제" onclick="jsDelete()">
+		<input type="button" value="삭제" onclick="jsDelete('${loginVO.mid}', '${board.tmid}')">
 		<input type="button" value="수정" onclick="jsUpdateForm()">
 	</form>
 </body>

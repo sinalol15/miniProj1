@@ -13,6 +13,7 @@ public class MboardVO1 {
 	private String tbcontent;
 	private String tbwriter;
 	private String tbdate;
+	private String tmid;
 	
 	//실행 명령 필드 
 	private String action;

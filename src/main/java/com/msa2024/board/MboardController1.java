@@ -44,6 +44,7 @@ public class MboardController1 extends HttpServlet {
 		return "list";
 	}
 	
+    
 	public Object view(HttpServletRequest request, MboardVO1 board, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("상세보기");
 		request.setAttribute("board", boardService.view(board));
@@ -135,8 +136,8 @@ public class MboardController1 extends HttpServlet {
 		//전처리로 세션정보를 얻는다
 		HttpSession session = request.getSession();
 		System.out.println("게시물등록시 sessionId = " + session.getId());
-		
 		MmemberVO1 loginVO = (MmemberVO1) session.getAttribute("loginVO");
+		board.setTmid(loginVO.getMid());
 		if (loginVO != null) {
 			board.setTbwriter(loginVO.getMname());
 		}

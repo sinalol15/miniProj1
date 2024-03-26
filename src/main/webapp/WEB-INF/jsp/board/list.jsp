@@ -39,6 +39,7 @@
     <form id="listForm" action="boards1" method="post">
     	<input type="hidden" id="action" name="action" value="view">
     	<input type="hidden" id="tbno" name="tbno">
+    	<input type="hidden" id="tmid" name="tmid">
     </form>
    
     <table>
@@ -50,7 +51,7 @@
         </tr>
         <c:forEach var="board" items="${list}">
         <tr>
-            <td onclick="jsView('${board.tbno}')"  style="cursor:pointer;">${board.tbno}</td>
+            <td onclick="jsView('${board.tbno}', '${loginVO.mid}')"  style="cursor:pointer;">${board.tbno}</td>
             <td>${board.tbtitle}</td>
             <td>${board.tbwriter}</td>
             <td>${board.tbdate}</td>
@@ -59,9 +60,10 @@
     </table>
     
 	<script>
-	function jsView(bn) {
+	function jsView(bn, id1) {
 		//인자의 값을 설정한다 
 		tbno.value = bn;
+		tmid.value = id1;
 		
 		//양식을 통해서 서버의 URL로 값을 전달한다
 		listForm.submit();

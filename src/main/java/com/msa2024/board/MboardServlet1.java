@@ -17,7 +17,6 @@ import com.msa2024.board.vo.MboardVO1;
 /**
  * Servlet implementation class MboardServlet
  */
-@WebServlet("/MboardServlet")
 public class MboardServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
