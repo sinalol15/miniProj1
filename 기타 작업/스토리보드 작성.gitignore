@@ -1,1 +1,69 @@
-/build/
+Table
+
+1)취미(TB_habbit)
+-hnumber/number not null/pk(1,2,3)
+-hname/varchar2(50) not null(game, read, exercise)
+
+2)회원정보(TB_member)
+-mid/varchar2(50) not null/pk
+-mname/varchar2(50) not null
+-mpassword/varchar2(50) not null
+-mage/number not null
+-memail/varchar2(50) not null
+
+3)게시판(TB_board)
+-tbno/number not null/pk
+-tbtitle/varchar2(100) not null
+-tbcontent/clob not null
+-tbwriter/varchar2(50) not null
+-tbdate/date default sysdate
+-tbviewcount/number not null
+
+4)회원정보+취미(TB_mhabbit)
+-mhid/varchar2(50) not null/fk/pk
+-mhnumber/number not null/fk
+
+Member
+
+1)Jsp
+-updateForm
+-insertForm
+-view
+-loginForm
+-mypage
+2)servlet
+-MmemberDAO
+-MmemberVO
+-MmemberController
+-MmemberService
+-MmemberServlet
+
+Board
+
+1)Jsp
+<로그인O>
+-list
+-updateForm
+-insertForm
+-view
+<로그인X>
+-view
+-list
+<메니저>
+-list
+-updateForm
+-insertForm
+-view
+2)servlet
+-MboardDAO
+-MboardVO
+-MboardController
+-MboardService
+-MboardServlet
+
+Page
+
+1)HTML
+-before(회사소개 회원가입 로그인 게시물(목록+상세))
+-after(회사소개 마이페이지(나의 정보 수정, 탈퇴) 로그인 게시물(자신의 것만 수정, 삭제+작성+목록+상세))
+-manager(회사소개 회원관리 게시물(모든 게시물 수정, 삭제 가능))
