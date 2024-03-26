@@ -63,7 +63,11 @@
 		}
 	}
 	
-	function jsUpdateForm() {
+	function jsUpdateForm(a, b) {
+		if(a != b){
+			alert("아이디가 일치하지 않습니다.");
+			return;
+		}
 		//서버의 URL을 설정한다 
 		action.value = "updateForm";
 	
@@ -77,7 +81,7 @@
 		<input type="hidden" name="tbno" value="${board.tbno}">
 		<input type="button" value="목록" onclick="jsList()">
 		<input type="button" value="삭제" onclick="jsDelete('${loginVO.mid}', '${board.tmid}')">
-		<input type="button" value="수정" onclick="jsUpdateForm()">
+		<input type="button" value="수정" onclick="jsUpdateForm('${loginVO.mid}', '${board.tmid}')">
 	</form>
 </body>
 </html>
