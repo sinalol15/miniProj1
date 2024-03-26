@@ -27,6 +27,7 @@
 	</style>
 </head>
 <body>
+<div id="after"></div>
 <h1>게시물목록</h1>
 	<h3>로그인 : ${loginVO.mname}</h3>
     <form id="searchForm" action="boards1" method="post">
@@ -59,6 +60,8 @@
         </c:forEach>
     </table>
     
+    
+	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	<script>
 	function jsView(bn, id1) {
 		//인자의 값을 설정한다 

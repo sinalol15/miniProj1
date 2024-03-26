@@ -47,3 +47,25 @@ const myFetch = (url, formId, handler) => {
 		if (handler) handler(json);
 	});	
 }
+
+function after() {
+	fetch('afterLogin.html').then(response => response.text()).then(
+		data =>{
+			document.getElementById("after").innerHTML = data;
+		}).catch(error =>{
+			console.out("load failed", error);
+		});
+}
+
+function before() {
+	fetch('beforeLogin.html').then(response => response.text()).then(
+		data =>{
+			document.getElementById("before").innerHTML = data;
+		}).catch(error =>{
+			console.out("load failed", error);
+		});
+}
+// <div id="after"></div>
+
+after();
+before();

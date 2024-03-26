@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AfterLogin</title>
+<style>
+    /* Resetting default margin and padding */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        width: 100%;
+        background-color: #f4f4f4;
+    }
+    
+    /* Navigation styling */
+    nav {
+        background-color: powderblue;
+        padding: 0px 0;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex; /* Align items horizontally */
+    }
+    
+    .nav-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: powderblue;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 0;
+        transition: background-color 0.3s;
+        margin: 0 0px;
+        width: auto;
+    }
+    
+    .nav-button:hover {
+        background-color: rgb(60, 179, 113);
+    }
+</style>
 </head>
 <body>
 <ul>
-	<li><a href="members1?action=loginForm">회사소개</a></li>
+	<li><a href="info.html">회사소개</a></li>
 	<li><a href="members1?action=list">회원관리</a></li>
 	<li><a href="boards1?action=list">게시물</a></li>
 </ul>
