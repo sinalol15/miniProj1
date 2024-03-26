@@ -65,7 +65,16 @@ function before() {
 			console.out("load failed", error);
 		});
 }
-// <div id="after"></div>
+
+function manager() {
+	fetch('manager.html').then(response => response.text()).then(
+		data =>{
+			document.getElementById("manager").innerHTML = data;
+		}).catch(error =>{
+			console.out("load failed", error);
+		});
+}
 
 after();
 before();
+manager();

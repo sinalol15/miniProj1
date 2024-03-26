@@ -29,6 +29,17 @@
 	</style>
 </head>
 <body>
+
+	<c:if test="${empty loginVO.mname}">
+	    <div id="before"></div>
+	</c:if>
+	<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
+	    <div id="after"></div>
+	</c:if>
+	<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
+	    <div id="manager"></div>
+	</c:if>
+
 	<h1>회원목록</h1>
 	  
     <form id="searchForm" action="members1" method="post" >

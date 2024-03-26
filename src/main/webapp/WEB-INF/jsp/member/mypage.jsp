@@ -17,7 +17,16 @@
 	</style>
 </head>
 <body>
-<h1>
+	<c:if test="${empty loginVO.mname}">
+	    <div id="before"></div>
+	</c:if>
+	<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
+	    <div id="after"></div>
+	</c:if>
+	<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
+	    <div id="manager"></div>
+	</c:if>
+	<h1>
        나의 페이지
     </h1>
    
