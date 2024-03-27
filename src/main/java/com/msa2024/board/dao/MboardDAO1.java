@@ -41,10 +41,10 @@ public class MboardDAO1 {
             System.out.println("연결 성공");
             conn.setAutoCommit(false);
 
-            boardListPstmt = conn.prepareStatement("select * from TB_BOARD order by tbno");
-            boardListPstmt2 = conn.prepareStatement("select * from TB_BOARD where tbtitle like ? order by tbno");
-            boardInsertPstmt = conn.prepareStatement("insert into TB_BOARD (tbno, tbtitle, tbcontent, tbwriter, tmid) values (seq_bno.nextval, ?, ?, ?, ?)");
-            boardDetailPstmt = conn.prepareStatement("select * from TB_BOARD where tbno = ?");
+            boardListPstmt = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid");
+            boardListPstmt2 = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid where tbtitle like ? order by tbno");
+            boardInsertPstmt = conn.prepareStatement("insert into TB_BOARD (tbno, tbtitle, tbcontent, tmid) values (seq_bno.nextval, ?, ?, ?)");
+            boardDetailPstmt = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid where tbno = ?");
             //delete 가 되지 않았던 이유: ? 개수에 맞춰서 setString() 을 해주어야 한다.
             boardDeletePstmt = conn.prepareStatement("delete from TB_BOARD where tbno = ?");
             boardDeleteAllPstmt = conn.prepareStatement("delete from TB_BOARD");
@@ -74,8 +74,8 @@ public class MboardDAO1 {
             	MboardVO1 boards = new MboardVO1(rs.getInt("tbno")
                         , rs.getString("tbtitle")
                         , rs.getString("tbcontent")
-                        , rs.getString("tbwriter")
-                        , rs.getString("tbdate"));
+                        , rs.getString("tbdate")
+                        , rs.getString("tbwriter"));
                 
                 list.add(boards);
             }
@@ -90,8 +90,7 @@ public class MboardDAO1 {
         try{
             boardInsertPstmt.setString(1, board.getTbtitle());
             boardInsertPstmt.setString(2, board.getTbcontent());
-            boardInsertPstmt.setString(3, board.getTbwriter());
-            boardInsertPstmt.setString(4, board.getTmid());
+            boardInsertPstmt.setString(3, board.getTmid());
             updated = boardInsertPstmt.executeUpdate();
             conn.commit();
         }catch (Exception e){
@@ -110,8 +109,8 @@ public class MboardDAO1 {
                 board = new MboardVO1(rs.getInt("tbno")
                         , rs.getString("tbtitle")
                         , rs.getString("tbcontent")
-                        , rs.getString("tbwriter")
-                        , rs.getString("tbdate"));
+                        , rs.getString("tbdate")
+                        , rs.getString("tbwriter"));
                 board.setTmid(rs.getString("tmid"));
             }
             rs.close();

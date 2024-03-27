@@ -33,7 +33,7 @@
 	<label>게시물 번호: ${board.tbno}</label> <br/>
 	<label>제목 : ${board.tbtitle}</label><br/>
 	<label>내용 : ${board.tbcontent}</label><br/>
-	<label>작성자 : ${board.tbwriter}</label><br/>
+	<label>작성자 : ${board.mname}</label><br/>
 	<label>작성일 : ${board.tbdate}</label><br/>
 	<label>작성일 : ${board.tmid}</label><br/>
 

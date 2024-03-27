@@ -138,9 +138,6 @@ public class MboardController1 extends HttpServlet {
 		System.out.println("게시물등록시 sessionId = " + session.getId());
 		MmemberVO1 loginVO = (MmemberVO1) session.getAttribute("loginVO");
 		board.setTmid(loginVO.getMid());
-		if (loginVO != null) {
-			board.setTbwriter(loginVO.getMname());
-		}
 		
 		//1. 처리
 		int updated = boardService.insert(board);

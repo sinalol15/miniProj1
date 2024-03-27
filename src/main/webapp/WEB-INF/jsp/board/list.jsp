@@ -57,19 +57,18 @@
         <tr>
             <th>게시물번호</th>
             <th>제목</th>
-            <th>작성자</th>
             <th>작성일</th>
+            <th>작성자</th>
         </tr>
         <c:forEach var="board" items="${list}">
         <tr>
             <td onclick="jsView('${board.tbno}', '${loginVO.mid}')"  style="cursor:pointer;">${board.tbno}</td>
             <td>${board.tbtitle}</td>
-            <td>${board.tbwriter}</td>
             <td>${board.tbdate}</td>
+            <td>${board.mname}</td>
         </tr>
         </c:forEach>
     </table>
-    
     
 	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	<script>
@@ -86,7 +85,6 @@
 
 	<form action = "boards1" method = "post">
 		<input type = "hidden" name = "action" value="insertForm">
-		<input type = "hidden" name = "tbwriter" value="${loginVO.mname}">
 		<input type = "submit" value = "등록">
 	</form>
 </body>

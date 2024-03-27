@@ -53,7 +53,7 @@ function after() {
 		data =>{
 			document.getElementById("after").innerHTML = data;
 		}).catch(error =>{
-			console.out("load failed", error);
+			console.log("load failed", error);
 		});
 }
 
@@ -62,7 +62,7 @@ function before() {
 		data =>{
 			document.getElementById("before").innerHTML = data;
 		}).catch(error =>{
-			console.out("load failed", error);
+			console.log("load failed", error);
 		});
 }
 
@@ -71,7 +71,7 @@ function manager() {
 		data =>{
 			document.getElementById("manager").innerHTML = data;
 		}).catch(error =>{
-			console.out("load failed", error);
+			console.log("load failed", error);
 		});
 }
 

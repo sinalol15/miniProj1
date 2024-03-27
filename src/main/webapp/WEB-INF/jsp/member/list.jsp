@@ -71,6 +71,7 @@
         </c:forEach>
     </table>
     
+	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	<script>
 	function jsView(memberid) {
 		//인자의 값을 설정한다 

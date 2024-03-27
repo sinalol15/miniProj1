@@ -11,10 +11,10 @@ public class MboardVO1 {
 	private int tbno;
 	private String tbtitle;
 	private String tbcontent;
-	private String tbwriter;
 	private String tbdate;
 	private String tmid;
-	
+	private String mname;
+
 	//실행 명령 필드 
 	private String action;
 	
@@ -24,28 +24,28 @@ public class MboardVO1 {
 	public boolean isEmptySearchKey() {
 		return searchKey == null || searchKey.length() == 0; 
 	}
-	
-	public MboardVO1(int tbno, String tbtitle, String tbcontent, String tbwriter, String tbdate) {
+
+	public MboardVO1(int tbno, String tbtitle, String tbcontent, String tbdate, String mname) {
 		super();
 		this.tbno = tbno;
 		this.tbtitle = tbtitle;
 		this.tbcontent = tbcontent;
-		this.tbwriter = tbwriter;
 		this.tbdate = tbdate;
+		this.mname = mname;
 	}
 
-	public MboardVO1(int tbno, String tbtitle, String tbcontent, String tbwriter) {
+	public MboardVO1(int tbno, String tbtitle, String tbcontent, String mname) {
 		super();
 		this.tbno = tbno;
 		this.tbtitle = tbtitle;
 		this.tbcontent = tbcontent;
-		this.tbwriter = tbwriter;
+		this.mname = mname;
 	}
 
-	public MboardVO1(String tbtitle, String tbcontent, String tbwriter) {
+	public MboardVO1(String tbtitle, String tbcontent, String mname) {
 		super();
 		this.tbtitle = tbtitle;
 		this.tbcontent = tbcontent;
-		this.tbwriter = tbwriter;
+		this.mname = mname;
 	}
 }
