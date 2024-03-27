@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,10 +48,10 @@
             <th>이메일</th>
         </tr>
         <tr>
-            <td onclick="jsView('${member.mid}')" style="cursor:pointer;">${member.mid}</td>
+            <td>${member.mid}</td>
             <td>${member.mname}</td>
             <td>${member.mage}</td>
-            <td>${member.mmail}</td>
+            <td>${member.memail}</td>
         </tr>
     </table>
 	
@@ -63,15 +64,13 @@
 		viewForm.submit();
 	}
 	
-	function jsView(memberid) {
-	   //인자의 값을 설정한다 
-	   mid.value = memberid;
-	   
-	   //양식을 통해서 서버의 URL로 값을 전달한다
-	   viewForm.submit();   
-	}
-	
-	function jsDelete() {
+	function jsDelete(a, b) {
+		if(a != 'park'){
+			if(a != b){
+				alert("아이디가 일치하지 않습니다.");
+				return;
+			}
+		}
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			/*
 			//서버의 URL을 설정한다 
@@ -84,7 +83,7 @@
 			myFetch("members1", "viewForm", json => {
 				if(json.status == 0) {
 					//성공
-					alert("탈퇴가 되었습니다");
+					alert("탈퇴 되었습니다");
 					location = "members1?action=list";
 				} else {
 					alert(json.statusMessage);
@@ -93,7 +92,13 @@
 		}
 	}
 	
-	function jsUpdateForm() {
+	function jsUpdateForm(a, b) {
+		if(a != 'park'){
+			if(a != b){
+				alert("아이디가 일치하지 않습니다.");
+				return;
+			}
+		}
 		//서버의 URL을 설정한다 
 		action.value = "updateForm";
 	
@@ -106,8 +111,8 @@
 		<input type="hidden" id="action" name="action" value="">
 		<input type="hidden" name="mid" value="${member.mid}">
 		<input type="button" value="목록" onclick="jsList()">
-		<input type="button" value="삭제" onclick="jsDelete()">
-		<input type="button" value="수정" onclick="jsUpdateForm()">
+		<input type="button" value="삭제" onclick="jsDelete('${loginVO.mid}', '${member.mid}')">
+		<input type="button" value="수정" onclick="jsUpdateForm('${loginVO.mid}', '${member.mid}')">
 	</form>
 </body>
 </html>

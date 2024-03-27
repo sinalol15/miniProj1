@@ -47,9 +47,11 @@
 	}
 	//tmid
 	function jsDelete(a, b) {
-		if(a != b){
-			alert("아이디가 일치하지 않습니다.");
-			return;
+		if(a != 'park'){
+			if(a != b){
+				alert("아이디가 일치하지 않습니다.");
+				return;
+			}
 		}
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			/*
@@ -73,9 +75,11 @@
 	}
 	
 	function jsUpdateForm(a, b) {
-		if(a != b){
-			alert("아이디가 일치하지 않습니다.");
-			return;
+		if(a != 'park'){
+			if(a != b){
+				alert("아이디가 일치하지 않습니다.");
+				return;
+			}
 		}
 		//서버의 URL을 설정한다 
 		action.value = "updateForm";

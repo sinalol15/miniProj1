@@ -50,7 +50,7 @@ public class MmemberController1 extends HttpServlet {
   		//String userid = request.getParameter("userid");
   		//1. 처리
   		//2. jsp출력할 값 설정
-  		request.setAttribute("user", memberService.view(member));
+  		request.setAttribute("member", memberService.view(member));
   		return "view";
   	}
   	
@@ -76,9 +76,9 @@ public class MmemberController1 extends HttpServlet {
   		//usersDAO.read(user);
   		
   		//2. jsp출력할 값 설정
-  		request.setAttribute("user", memberService.updateForm(member));
+  		request.setAttribute("member", memberService.updateForm(member));
   		
-  		return "updateForm"; 
+  		return "updateForm";
   	}
   	
   	public Object update(HttpServletRequest request, MmemberVO1 member) throws ServletException, IOException {
@@ -199,7 +199,10 @@ public class MmemberController1 extends HttpServlet {
   	
   	public Object mypage(HttpServletRequest request, MmemberVO1 member) throws ServletException, IOException {
   		System.out.println("상세보기");
-  		
+  		HttpSession session = request.getSession();
+  		MmemberVO1 loginVO = (MmemberVO1) session.getAttribute("loginVO");
+  		System.out.println(loginVO);
+
   		return "mypage";
   	}
 

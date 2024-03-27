@@ -30,10 +30,10 @@
        나의 페이지
     </h1>
    
-	<label>아이디 : ${member.mid}</label> <br/>
-	<label>이름 : ${member.mname}</label><br/>
-	<label>나이: ${member.mage}</label><br/>
-	<label>이메일: ${member.memail}</label><br/>
+	<label>아이디 : ${loginVO.mid}</label> <br/>
+	<label>이름 : ${loginVO.mname}</label><br/>
+	<label>나이: ${loginVO.mage}</label><br/>
+	<label>이메일: ${loginVO.memail}</label><br/>
 
 	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	
@@ -67,7 +67,7 @@
 	<!-- 두개의 폼을 하나로 합치는 방법 , js를 사용하여 처리  -->
 	<form id="viewForm" method="post" action="members1">
 		<input type="hidden" id="action" name="action" value="">
-		<input type="hidden" id="userid" name="userid" value="${member.mid}">
+		<input type="hidden" id="mid" name="mid" value="${loginVO.mid}">
 		<input type="button" value="삭제" onclick="jsDelete()">
 		<input type="button" value="수정" onclick="jsUpdateForm()">
 	</form>

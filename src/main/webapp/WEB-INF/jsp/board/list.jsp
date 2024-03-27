@@ -71,11 +71,12 @@
     </table>
     
     <form id="insertForm" method="post" action="boards1">
-		<input type="hidden" id="action" name="action" value="">
+		<input type="hidden" id="action" name="action" value="insertForm">
 		<input type="button" value="등록" onclick="jsInsertForm('${loginVO.mid}')">
 	</form>
 	
 	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
+	
 	<script>
 	function jsView(bn, id1) {
 		//인자의 값을 설정한다 
@@ -86,14 +87,12 @@
 		listForm.submit();
 		
 	}
+	
 	function jsInsertForm(a) {
 	    if(a === null || a === undefined || a === ""){
 	        alert("로그인을 해야 등록이 가능합니다.");
 	        return;
 	    }
-		//서버의 URL을 설정한다 
-		action.value = "insertForm";
-	
 		//서버의 URL로 전송한다 
 		insertForm.submit();
 	}

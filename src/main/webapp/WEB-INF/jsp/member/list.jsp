@@ -51,7 +51,7 @@
     
     <form id="listForm" action="members1" method="post">
     	<input type="hidden" id="action" name="action" value="view">
-    	<input type="hidden" id="mid" name="mid" >
+    	<input type="hidden" id="mid" name="mid" value="">
     </form>
     
     <table>

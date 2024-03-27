@@ -61,7 +61,7 @@ public class MmemberDAO1 {
             memberValidationIdPstmt = conn.prepareStatement("select mid from tb_member where mid=?");
             memberValidationPasswordPstmt  = conn.prepareStatement("select mpassword from tb_member where mpassword=? ");
             //delete 가 되지 않았던 이유: ? 개수에 맞춰서 setString() 을 해주어야 한다.
-            memberDeletePstmt = conn.prepareStatement("delete from tb_member where userid=?");
+            memberDeletePstmt = conn.prepareStatement("delete from tb_member where mid=?");
             memberDeleteAllPstmt = conn.prepareStatement("delete from tb_member");
             memberUpdatePstmt = conn.prepareStatement("update tb_member set mname=?, mpassword=?,mage=?, memail=? where mid=?");
             // 5. 결과 처리
@@ -132,36 +132,37 @@ public class MmemberDAO1 {
         }
         return updated;
     }
-    public MmemberVO1 read(MmemberVO1 member) {
+    public MmemberVO1 read(MmemberVO1 member1) {
 
-    	MmemberVO1 members = null;
+    	MmemberVO1 member = null;
         try {
-            memberDetailPstmt.setString(1, member.getMid());
+            memberDetailPstmt.setString(1, member1.getMid());
 
             ResultSet rs = memberDetailPstmt.executeQuery();
             if (rs.next()) {
-            	members = new MmemberVO1(rs.getString("mid")
+            	member = new MmemberVO1(rs.getString("mid")
                         , rs.getString("mpassword")
                         , rs.getString("mname")
                         , rs.getInt("mage")
                         , rs.getString("memail"));
+                member.setMid(rs.getString("mid"));
             }
             rs.close();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return members;
+        return member;
     }
 
-    public int update(MmemberVO1 members) {
+    public int update(MmemberVO1 member) {
         int updated = 0;
         try {
-        	memberUpdatePstmt.setString(1, members.getMname());
-        	memberUpdatePstmt.setString(2, members.getMpassword());
-        	memberUpdatePstmt.setInt(3, members.getMage());
-        	memberUpdatePstmt.setString(4, members.getMemail());
-        	memberUpdatePstmt.setString(5, members.getMid());
+        	memberUpdatePstmt.setString(1, member.getMname());
+        	memberUpdatePstmt.setString(2, member.getMpassword());
+        	memberUpdatePstmt.setInt(3, member.getMage());
+        	memberUpdatePstmt.setString(4, member.getMemail());
+        	memberUpdatePstmt.setString(5, member.getMid());
             updated = memberUpdatePstmt.executeUpdate();
             conn.commit();
         } catch (Exception e) {
@@ -250,7 +251,7 @@ public class MmemberDAO1 {
                 		.mpassword(rs.getString("mpassword"))
                 		.mname(rs.getString("mname"))
                 		.mage(rs.getInt("mage"))
-                		.memail(rs.getString("mmail"))
+                		.memail(rs.getString("memail"))
                 		.muuid(rs.getString("muuid"))
                 		.build();
     		}
