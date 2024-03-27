@@ -1,6 +1,7 @@
 package com.msa2024.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -178,7 +179,7 @@ public class MmemberController1 extends HttpServlet {
   		return "redirect:boards1?action=list";
   	}
   	
-  	public Object logout(HttpServletRequest request) {
+  	public Object logout(HttpServletRequest request) throws IOException {
   		Map<String, Object> map = new HashMap<>();
   		
   		//로그인 사용자의 정보를 세션에 제거한다
@@ -193,7 +194,7 @@ public class MmemberController1 extends HttpServlet {
   		System.out.println("logout session id = " + session.getId());
   		session.removeAttribute("loginVO"); //특정 이름을 제거한다
   		session.invalidate(); //세션에 저장된 모든 자료를 삭제한다 
-  		
+
   		return map;
   	}
   	

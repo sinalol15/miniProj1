@@ -110,20 +110,12 @@ public class MmemberDAO1 {
             memberInsertPstmt.setString(5, members.getMemail());
             updated = memberInsertPstmt.executeUpdate();
             
-            if (members.getMhabbit1() != null) {
-	            memberInsertPstmt2.setString(1, members.getMid());
-	            memberInsertPstmt2.setString(2, members.getMhabbit1());
-	            memberInsertPstmt2.executeUpdate();
-            }
-            if (members.getMhabbit2() != null) {
-	            memberInsertPstmt2.setString(1, members.getMid());
-	            memberInsertPstmt2.setString(2, members.getMhabbit2());
-	            memberInsertPstmt2.executeUpdate();
-            }
-            if (members.getMhabbit3() != null) {
-	            memberInsertPstmt2.setString(1, members.getMid());
-	            memberInsertPstmt2.setString(2, members.getMhabbit3());
-	            memberInsertPstmt2.executeUpdate();
+            if (members.getMhabbit() != null) {
+            	for (int i=0; i<members.getMhabbit().size(); i++) {
+		            memberInsertPstmt2.setString(1, members.getMid());
+		            memberInsertPstmt2.setString(2, members.getMhabbit().get(i));
+		            memberInsertPstmt2.executeUpdate();
+            	}
             }
             
             conn.commit();

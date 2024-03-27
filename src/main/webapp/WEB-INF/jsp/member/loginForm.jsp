@@ -44,7 +44,7 @@
     	<label for="autologin">자동로그인</label><input type="checkbox" id="autologin" name="autologin" value="Y">
 	    <div>
 	        <input type="submit" value="로그인">
-	        <a href="members1?action=list">취소</a>
+	        <a href="beforeLogin.html">취소</a>
 	    </div>
     </form>    
 </body>

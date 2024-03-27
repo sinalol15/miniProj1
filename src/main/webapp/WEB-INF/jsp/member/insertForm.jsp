@@ -38,9 +38,9 @@
         <label>나이: </label>    <input type="text" id="mage" name="mage" required="required"><br/>
         <label>이메일: </label>  <input type="text" id="memail" name="memail" required="required"><br/>
         <h4>취미: </h4>
-        <label>게임</label><input type="checkbox" id="mhabbit1" name="mhabbit1" value="1"><br/>
-        <label>책 읽기</label><input type="checkbox" id="mhabbit2" name="mhabbit2" value="2"><br/>
-        <label>운동</label><input type="checkbox" id="mhabbit3" name="mhabbit3" value="3"><br/>
+        <label>게임</label><input type="checkbox" id="mhabbit1" name="mhabbit" value="1"><br/>
+        <label>책 읽기</label><input type="checkbox" id="mhabbit2" name="mhabbit" value="2"><br/>
+        <label>운동</label><input type="checkbox" id="mhabbit3" name="mhabbit" value="3"><br/>
         
 	    <div>
 	        <input type="submit" value="등록">

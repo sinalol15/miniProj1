@@ -1,5 +1,7 @@
 package com.msa2024.member.vo;
 
+import java.util.List;
+
 import com.msa2024.member.vo.MmemberVO1;
 
 import lombok.AllArgsConstructor;
@@ -15,9 +17,7 @@ public class MmemberVO1 {
 	private String mid;
 	private String mpassword;
 	private String mname;
-	private String mhabbit1=null;
-	private String mhabbit2=null;
-	private String mhabbit3=null;
+	private List<String> mhabbit;
 	private int    mage;
 	private String memail;
 	
