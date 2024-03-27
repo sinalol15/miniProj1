@@ -92,7 +92,7 @@ public class MboardController1 extends HttpServlet {
 			map.put("status", 0);
 		} else {
 			map.put("status", -99);
-			map.put("statusMessage", "회원 정보 삭제 실패하였습니다");
+			map.put("statusMessage", "게시물 삭제에 실패하였습니다");
 		}
 		return map;
 	}

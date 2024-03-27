@@ -47,12 +47,12 @@
     	<input type="submit" value="검색">
     </form>
     
-    <form id="listForm" action="boards1" method="post">
+   	<form id="listForm" action="boards1" method="post">
     	<input type="hidden" id="action" name="action" value="view">
     	<input type="hidden" id="tbno" name="tbno">
     	<input type="hidden" id="tmid" name="tmid">
     </form>
-   
+    
     <table>
         <tr>
             <th>게시물번호</th>
@@ -70,6 +70,11 @@
         </c:forEach>
     </table>
     
+    <form id="insertForm" method="post" action="boards1">
+		<input type="hidden" id="action" name="action" value="">
+		<input type="button" value="등록" onclick="jsInsertForm('${loginVO.mid}')">
+	</form>
+	
 	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	<script>
 	function jsView(bn, id1) {
@@ -81,11 +86,19 @@
 		listForm.submit();
 		
 	}
+	function jsInsertForm(a) {
+	    if(a === null || a === undefined || a === ""){
+	        alert("로그인을 해야 등록이 가능합니다.");
+	        return;
+	    }
+		//서버의 URL을 설정한다 
+		action.value = "insertForm";
+	
+		//서버의 URL로 전송한다 
+		insertForm.submit();
+	}
 	</script>
 
-	<form action = "boards1" method = "post">
-		<input type = "hidden" name = "action" value="insertForm">
-		<input type = "submit" value = "등록">
-	</form>
+
 </body>
 </html>
