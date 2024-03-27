@@ -23,6 +23,7 @@ public class MboardDAO1 {
     private static PreparedStatement boardDetailPstmt = null;
 
     private static PreparedStatement boardUpdatePstmt = null;
+    private static PreparedStatement boardUpdateviewcountPstmt = null;
     private static PreparedStatement boardDeleteAllPstmt = null;
 
     static {
@@ -49,6 +50,7 @@ public class MboardDAO1 {
             boardDeletePstmt = conn.prepareStatement("delete from TB_BOARD where tbno = ?");
             boardDeleteAllPstmt = conn.prepareStatement("delete from TB_BOARD");
             boardUpdatePstmt = conn.prepareStatement("update TB_BOARD set tbtitle = ?, tbcontent = ? where tbno = ?");
+            boardUpdateviewcountPstmt = conn.prepareStatement("UPDATE TB_BOARD SET tbviewcount = ? WHERE tbno = ?");
             // 5. 결과 처리
             // 6. 연결 해제
         } catch (ClassNotFoundException e) {
@@ -75,7 +77,8 @@ public class MboardDAO1 {
                         , rs.getString("tbtitle")
                         , rs.getString("tbcontent")
                         , rs.getString("tbdate")
-                        , rs.getString("tbwriter"));
+                        , rs.getString("tbwriter")
+                        , rs.getInt("tbviewcount"));
                 
                 list.add(boards);
             }
@@ -98,9 +101,10 @@ public class MboardDAO1 {
         }
         return updated;
     }
-    public MboardVO1 read(MboardVO1 boards) {
+    public MboardVO1 read(MboardVO1 boards) throws SQLException {
 
     	MboardVO1 board = null;
+    	
         try {
             boardDetailPstmt.setInt(1, boards.getTbno());
 
@@ -112,6 +116,11 @@ public class MboardDAO1 {
                         , rs.getString("tbdate")
                         , rs.getString("tbwriter"));
                 board.setTmid(rs.getString("tmid"));
+                
+                int viewCount = rs.getInt("tbviewcount");
+                viewCount++;
+                updateViewCount(board, viewCount);
+                board.setViewcount(viewCount);
             }
             rs.close();
 
@@ -155,6 +164,23 @@ public class MboardDAO1 {
             updated = boardDeleteAllPstmt.executeUpdate();
             conn.commit();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return updated;
+    }
+    
+    private int updateViewCount(MboardVO1 board, int viewcount) {
+        // UPDATE 쿼리문 작성 
+    	int updated = 0;
+        try {
+            // PreparedStatement에 파라미터 값 설정
+        	boardUpdateviewcountPstmt.setInt(1, viewcount);
+        	boardUpdateviewcountPstmt.setInt(2, board.getTbno());
+            // 쿼리 실행
+        	updated = boardUpdateviewcountPstmt.executeUpdate();
+        	conn.commit();
+        } catch (SQLException e) {
+            // 예외 처리
             e.printStackTrace();
         }
         return updated;

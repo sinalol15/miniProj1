@@ -1,6 +1,7 @@
 package com.msa2024.board;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,14 +34,36 @@ public class MboardServlet1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doService(request, response);
+		try {
+			doService(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doService(request, response);
+		try {
+			doService(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private Map<String, Object> convertMap(Map<String, String[]> map) {
@@ -60,7 +83,7 @@ public class MboardServlet1 extends HttpServlet {
 	}
 	
 	//공통 처리 함수 
-	private void doService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		//한글 설정 
 		request.setCharacterEncoding("utf-8");
 		String contentType = request.getContentType();

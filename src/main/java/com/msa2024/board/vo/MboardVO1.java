@@ -14,6 +14,7 @@ public class MboardVO1 {
 	private String tbdate;
 	private String tmid;
 	private String mname;
+	private int viewcount;
 
 	//실행 명령 필드 
 	private String action;
@@ -34,18 +35,13 @@ public class MboardVO1 {
 		this.mname = mname;
 	}
 
-	public MboardVO1(int tbno, String tbtitle, String tbcontent, String mname) {
+	public MboardVO1(int tbno, String tbtitle, String tbcontent, String tbdate, String mname, int viewcount) {
 		super();
 		this.tbno = tbno;
 		this.tbtitle = tbtitle;
 		this.tbcontent = tbcontent;
+		this.tbdate = tbdate;
 		this.mname = mname;
-	}
-
-	public MboardVO1(String tbtitle, String tbcontent, String mname) {
-		super();
-		this.tbtitle = tbtitle;
-		this.tbcontent = tbcontent;
-		this.mname = mname;
+		this.viewcount = viewcount;
 	}
 }

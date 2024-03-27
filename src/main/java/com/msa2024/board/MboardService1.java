@@ -1,6 +1,7 @@
 package com.msa2024.board;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -30,7 +31,7 @@ public class MboardService1 extends HttpServlet {
 		return boardsDAO.list(board);
 	}
 	
-	public MboardVO1 view(MboardVO1 board) throws ServletException, IOException {
+	public MboardVO1 view(MboardVO1 board) throws ServletException, IOException, SQLException {
 		return boardsDAO.read(board);
 	}
 	
@@ -38,7 +39,7 @@ public class MboardService1 extends HttpServlet {
 		return boardsDAO.delete(board);
 	}
 	
-	public MboardVO1 updateForm(MboardVO1 board) throws ServletException, IOException {
+	public MboardVO1 updateForm(MboardVO1 board) throws ServletException, IOException, SQLException {
 		return boardsDAO.read(board);
 	}
 	

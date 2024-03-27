@@ -1,6 +1,7 @@
 package com.msa2024.board;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +46,7 @@ public class MboardController1 extends HttpServlet {
 	}
 	
     
-	public Object view(HttpServletRequest request, MboardVO1 board, HttpServletResponse response) throws ServletException, IOException {
+	public Object view(HttpServletRequest request, MboardVO1 board, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		System.out.println("상세보기");
 		request.setAttribute("board", boardService.view(board));
 		
@@ -97,7 +98,7 @@ public class MboardController1 extends HttpServlet {
 		return map;
 	}
 	
-	public Object updateForm(HttpServletRequest request, MboardVO1 board) throws ServletException, IOException {
+	public Object updateForm(HttpServletRequest request, MboardVO1 board) throws ServletException, IOException, SQLException {
 		System.out.println("수정화면");
 		request.setAttribute("board", boardService.updateForm(board));
 		
