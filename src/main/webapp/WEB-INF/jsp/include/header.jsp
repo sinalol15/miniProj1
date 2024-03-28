@@ -2,13 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Menu</title>
-</head>
-<body>
 	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	
 	<c:if test="${empty loginVO.mname}">
@@ -29,5 +22,3 @@
 	    	manager();
 	    </script>
 	</c:if>
-</body>
-</html>
