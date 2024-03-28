@@ -42,7 +42,7 @@ public class MboardDAO1 {
             System.out.println("연결 성공");
             conn.setAutoCommit(false);
 
-            boardListPstmt = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid");
+            boardListPstmt = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid order by tbno");
             boardListPstmt2 = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid where tbtitle like ? order by tbno");
             boardInsertPstmt = conn.prepareStatement("insert into TB_BOARD (tbno, tbtitle, tbcontent, tmid) values (seq_bno.nextval, ?, ?, ?)");
             boardDetailPstmt = conn.prepareStatement("select B.*, M.mname tbwriter from TB_BOARD B inner join TB_MEMBER M on B.tmid = m.mid where tbno = ?");
