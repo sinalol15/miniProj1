@@ -27,15 +27,8 @@
 	</style>
 </head>
 <body>
-	<c:if test="${empty loginVO.mname}">
-	    <div id="before"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
-	    <div id="after"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
-	    <div id="manager"></div>
-	</c:if>
+	<jsp:include page="../include/header.jsp"/>
+
     <h1>
         사용자 정보 상세보기
     </h1>
@@ -55,8 +48,6 @@
         </tr>
     </table>
 	
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
-
 	<script>
 	function jsList() {
 		action.value = "list";
@@ -116,15 +107,3 @@
 	</form>
 </body>
 </html>
-
-
-
-
-
-
-<!-- 
-
-서버 실행 -> (view) jsp, json  
-
-
- -->

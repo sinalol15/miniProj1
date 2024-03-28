@@ -17,15 +17,8 @@
 	</style>
 </head>
 <body>
-	<c:if test="${empty loginVO.mname}">
-	    <div id="before"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
-	    <div id="after"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
-	    <div id="manager"></div>
-	</c:if>
+	<jsp:include page="../include/header.jsp"/>
+
 	<h1>
        나의 페이지
     </h1>
@@ -34,8 +27,6 @@
 	<label>이름 : ${loginVO.mname}</label><br/>
 	<label>나이: ${loginVO.mage}</label><br/>
 	<label>이메일: ${loginVO.memail}</label><br/>
-
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	
 	<script>
 	function jsDelete() {

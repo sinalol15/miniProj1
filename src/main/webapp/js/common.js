@@ -81,16 +81,9 @@ function manager() {
 		});
 }
 
-function menu() {
-	if (!loginVO) {
-	    before();
-	    document.getElementById("before").style.display = "block";
-	    console.log(loginVO);
-	} else if (loginVO.mid !== 'park') {
-	    after();
-	    document.getElementById("after").style.display = "block";
-	} else if (loginVO.mid === 'park') {
-		manager();
-	    document.getElementById("manager").style.display = "block";
-	}
+function onLogout() {
+	myFetch("members1", {action:'logout'}, json => {
+		alert("로그아웃 되었습니다.");
+		location.href = "info.jsp";
+	});
 }

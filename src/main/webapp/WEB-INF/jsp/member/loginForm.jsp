@@ -18,22 +18,14 @@
 </head>
 <c:if test="${not empty param.err}">
 
-<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script>
 	alert("아이디 또는 비밀번호가 잘못되었습니다");
 </script>
 	
 </c:if>
 <body>
-	<c:if test="${empty loginVO.mname}">
-	    <div id="before"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
-	    <div id="after"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
-	    <div id="manager"></div>
-	</c:if>
+	<jsp:include page="../include/header.jsp"/>
+
     <h1>
         로그인 화면
     </h1>

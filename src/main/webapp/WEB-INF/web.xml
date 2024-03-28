@@ -29,5 +29,15 @@
 		<servlet-name>MboardServlet1</servlet-name>
 		<url-pattern>/boards1</url-pattern>
 	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>MincludeServlet1</servlet-name>
+		<servlet-class>com.msa2024.include.MincludeServlet1</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MincludeServlet1</servlet-name>
+		<url-pattern>/includes1</url-pattern>
+	</servlet-mapping>
   
 </web-app>

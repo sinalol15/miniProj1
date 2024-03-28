@@ -56,22 +56,12 @@
 
 <nav>
 <ul>
-    <li><a href="info.html" class="nav-button">회사소개</a></li>
+    <li><a href="info.jsp" class="nav-button">회사소개</a></li>
     <li><a href="members1?action=mypage" class="nav-button">마이페이지</a></li>
-    <li><a href="#" onclick="onLogout()" class="nav-button">로그아웃</a></li>
+    <li><a href="#" onclick="javascript:onLogout()" class="nav-button">로그아웃</a></li>
     <li><a href="boards1?action=list" class="nav-button">게시물</a></li>
 </ul>
 </nav>
-
-<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
-<script>
-function onLogout() {
-	myFetch("members1?action=logout", {}, json => {
-		alert("로그아웃 되었습니다.");
-		location.href = "beforeLogin.html";
-	});
-}
-</script>
 
 </body>
 </html>

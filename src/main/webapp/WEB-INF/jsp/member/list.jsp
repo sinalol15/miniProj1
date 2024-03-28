@@ -29,16 +29,7 @@
 	</style>
 </head>
 <body>
-
-	<c:if test="${empty loginVO.mname}">
-	    <div id="before"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
-	    <div id="after"></div>
-	</c:if>
-	<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
-	    <div id="manager"></div>
-	</c:if>
+	<jsp:include page="../include/header.jsp"/>
 
 	<h1>회원목록</h1>
 	  
@@ -71,7 +62,6 @@
         </c:forEach>
     </table>
     
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	<script>
 	function jsView(memberid) {
 		//인자의 값을 설정한다 

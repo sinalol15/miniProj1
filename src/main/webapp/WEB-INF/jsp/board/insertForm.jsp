@@ -17,6 +17,8 @@
     </style>
 </head>
 <body>
+	<jsp:include page="../include/header.jsp"/>
+
 	<c:if test="${empty loginVO.mname}">
 	    <div id="before"></div>
 	</c:if>
@@ -40,9 +42,7 @@
     </div>
     
     </form>
-        
-    <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
-    
+            
     <script type="text/javascript">
     const rForm = document.getElementById("rForm");
     
