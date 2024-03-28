@@ -17,6 +17,8 @@
     </style>
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
+
 	<c:if test="${empty loginVO.mname}">
 	    <div id="before"></div>
 	</c:if>

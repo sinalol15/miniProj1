@@ -27,18 +27,9 @@
 	</style>
 </head>
 <body>
-
-<c:if test="${empty loginVO.mname}">
-    <div id="before"></div>
-</c:if>
-<c:if test="${!empty loginVO.mname && loginVO.mid ne 'park'}">
-    <div id="after"></div>
-</c:if>
-<c:if test="${!empty loginVO.mname && loginVO.mid eq 'park'}">
-    <div id="manager"></div>
-</c:if>
-
-<h1>게시물목록</h1>
+	<jsp:include page="header.jsp"/>
+	
+	<h1>게시물목록</h1>
 	<h3>로그인 : ${loginVO.mname}</h3>
     <form id="searchForm" action="boards1" method="post">
     	<input type="hidden" id="action" name="action" value="list">

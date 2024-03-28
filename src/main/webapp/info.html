@@ -3,10 +3,20 @@
     <head>
         <title>Company-info</title>
         <meta charset="utf-8">
-        <script src="header.jsp"></script>
     </head>
     <body>
-    	
+		<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
+        <script>
+            if ("<%= loginVO.getMname() %>" === "" || "<%= loginVO.getMname() %>" === null) {
+                before();
+            }
+            else if ("<%= loginVO.getMname() %>" !== "" && "<%= !loginVO.getMid().equals('park') %>") {
+                after();
+            }
+            else if ("<%= loginVO.getMname() %>" !== "" && "<%= loginVO.getMid().equals('park') %>") {
+                manager();
+            }
+        </script>
         <h1 style="background-color:powderblue; color:white;">사용 언어</h1>
         <ol>
             <li>HTML</li>
