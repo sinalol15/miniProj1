@@ -18,14 +18,13 @@
 </head>
 <c:if test="${not empty param.err}">
 
-<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 <script>
 	alert("아이디 또는 비밀번호가 잘못되었습니다");
 </script>
 	
 </c:if>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 
     <h1>
         로그인 화면

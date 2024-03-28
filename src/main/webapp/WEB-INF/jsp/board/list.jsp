@@ -27,7 +27,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 	
 	<h1>게시물목록</h1>
 	<h3>로그인 : ${loginVO.mname}</h3>
@@ -67,9 +67,7 @@
 		<input type="hidden" id="action" name="action" value="insertForm">
 		<input type="button" value="등록" onclick="jsInsertForm('${loginVO.mid}')">
 	</form>
-	
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
-	
+		
 	<script>
 	function jsView(bn, id1) {
 		//인자의 값을 설정한다 

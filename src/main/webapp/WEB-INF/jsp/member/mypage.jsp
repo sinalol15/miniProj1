@@ -17,7 +17,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 
 	<h1>
        나의 페이지
@@ -27,8 +27,6 @@
 	<label>이름 : ${loginVO.mname}</label><br/>
 	<label>나이: ${loginVO.mage}</label><br/>
 	<label>이메일: ${loginVO.memail}</label><br/>
-
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	
 	<script>
 	function jsDelete() {

@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 
 	<h1>
     	게시물 수정 수정양식 
@@ -33,9 +33,7 @@
     </div>
     
     </form>
-    
-    <script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
-    
+        
     <script type="text/javascript">
     
     const rForm = document.getElementById("rForm");

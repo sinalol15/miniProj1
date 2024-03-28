@@ -29,7 +29,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 
 	<h1>회원목록</h1>
 	  
@@ -62,7 +62,6 @@
         </c:forEach>
     </table>
     
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	<script>
 	function jsView(memberid) {
 		//인자의 값을 설정한다 

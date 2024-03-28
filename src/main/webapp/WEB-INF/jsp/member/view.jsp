@@ -27,7 +27,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 
     <h1>
         사용자 정보 상세보기
@@ -48,8 +48,6 @@
         </tr>
     </table>
 	
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
-
 	<script>
 	function jsList() {
 		action.value = "list";

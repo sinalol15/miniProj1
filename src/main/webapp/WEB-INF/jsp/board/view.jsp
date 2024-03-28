@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 	
 	<h1>
         게시물 상세보기
@@ -29,8 +29,6 @@
 	<label>작성자 : ${board.mname}</label><br/>
 	<label>작성일 : ${board.tbdate}</label><br/>
 	<label>작성일 : ${board.tmid}</label><br/>
-
-	<script type="text/javascript" src="<c:url value='/js/common.js'/>"></script>
 	
 	<script>
 	function jsList() {

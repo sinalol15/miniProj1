@@ -80,3 +80,10 @@ function manager() {
 			console.log("load failed", error);
 		});
 }
+
+function onLogout() {
+	myFetch("members1", {action:'logout'}, json => {
+		alert("로그아웃 되었습니다.");
+		location.href = "info.jsp";
+	});
+}
