@@ -18,29 +18,38 @@
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>
-
+	
+	<form id="insertForm" action="members1" method="post" >
+    	<input type="hidden" id="action" name="action" value="hobby">
+    </form>
+    
 	<h1>
         회원가입 정보 입력
     </h1>
     <form id="rForm" action="members1" method="post">
-    	<input type="hidden" name="action" value="insert">
+       	<input type="hidden" name="action" value="insert">
         <label>아이디 : </label> <input type="text" id="mid" name="mid" required="required"><input type="button" id="duplicateId" value="중복확인"><br/>
         <label>비밀번호 : </label>   <input type="password" id="mpassword" name="mpassword" required="required"><br/>
         <label>비밀번호확인 : </label>   <input type="password" id="mpassword2" name="mpassword2" required="required"><br/>
         <label>이름 : </label>   <input type="text" id="mname" name="mname" required="required"><br/>
         <label>나이: </label>    <input type="text" id="mage" name="mage" required="required"><br/>
         <label>이메일: </label>  <input type="text" id="memail" name="memail" required="required"><br/>
+        <label>성별: </label>  
+		<input type="radio" id="male" name="mgender" value="male">
+		<label for="male">남성</label>
+		<input type="radio" id="female" name="mgender" value="female">
+		<label for="female">여성</label><br/>
+        
         <h4>취미: </h4>
-        <label>게임</label><input type="checkbox" id="mhabbit1" name="mhabbit" value="1"><br/>
-        <label>책 읽기</label><input type="checkbox" id="mhabbit2" name="mhabbit" value="2"><br/>
-        <label>운동</label><input type="checkbox" id="mhabbit3" name="mhabbit" value="3"><br/>
-        
-	    <div>
-	        <input type="submit" value="등록">
-	        <a href="members1?action=list">취소</a>
-	    </div>
+        <c:forEach var="hobbies" items="${hobbies}">
+		    <label>${hobbies.hname}</label>
+		    <input type="checkbox" name="mhabbit" value="${hobbies.hnumber}"><br/>
+		</c:forEach>
+		
+		<input type="submit" value="등록">
+        <a href="members1?action=list">취소</a>
     </form>
-        
+    
     <script type="text/javascript">
     const rForm = document.getElementById("rForm");
     const mid = document.getElementById("mid");

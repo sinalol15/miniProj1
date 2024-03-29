@@ -11,7 +11,7 @@ const formToSerialize = (formId) => JSON.stringify([].reduce.call(document.query
 	        if (element.checked) {
 	           if (typeof data[element.name] == 'undefined') {
 	              //문자열 1건 추가
-	              if (document.querySelector("#" + formId).querySelectorAll("[name='" +element.name+ "']").length == 1) {
+	              if (document.querySelector("#" + formId).querySelectorAll("[name='" +element.name+ "']").length == 1 || element.type == 'radio') {
 		            //문자열 값을 배열로 변경 
 	                data[element.name] = element.value;
 				  } else {

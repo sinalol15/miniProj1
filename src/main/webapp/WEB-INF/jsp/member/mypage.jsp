@@ -27,6 +27,8 @@
 	<label>이름 : ${loginVO.mname}</label><br/>
 	<label>나이: ${loginVO.mage}</label><br/>
 	<label>이메일: ${loginVO.memail}</label><br/>
+	<label>취미: ${hobbies.hname}</label>
+	
 	
 	<script>
 	function jsDelete() {

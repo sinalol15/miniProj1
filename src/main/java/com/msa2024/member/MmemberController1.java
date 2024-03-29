@@ -78,7 +78,8 @@ public class MmemberController1 extends HttpServlet {
   		
   		//2. jsp출력할 값 설정
   		request.setAttribute("member", memberService.updateForm(member));
-  		
+  		request.setAttribute("hobbies", memberService.hobbyFoundCheck(member));
+
   		return "updateForm";
   	}
   	
@@ -86,22 +87,32 @@ public class MmemberController1 extends HttpServlet {
   		System.out.println("수정");
   		
   		//1. 처리
-  		int updated = memberService.update(member);
+  		int updated1 = memberService.update(member);
+  		int updated2 = memberService.hobbyFoundInsert(member);
   		
   		Map<String, Object> map = new HashMap<>();
   		
-  		if (updated == 1) { //성공
+  		if (updated1 == 1) { //성공
   			map.put("status", 0);
+  	  		if (updated2 != 0) { //성공
+  	  			map.put("status", 0);
+  	  		} else {
+  	  			map.put("status", -99);
+  	  			map.put("statusMessage", "취미 수정에 실패하였습니다");
+  	  		}
   		} else {
   			map.put("status", -99);
   			map.put("statusMessage", "회원정보 수정에 실패하였습니다");
   		}
+  		
   		return map;
   	}
   	
   	public Object insertForm(HttpServletRequest request) throws ServletException, IOException {
   		System.out.println("등록화면");
   		//1. 처리
+  		
+  		request.setAttribute("hobbies", memberService.hobbies());
   		
   		//2. jsp출력할 값 설정
   		return "insertForm";
@@ -203,6 +214,8 @@ public class MmemberController1 extends HttpServlet {
   		HttpSession session = request.getSession();
   		MmemberVO1 loginVO = (MmemberVO1) session.getAttribute("loginVO");
   		System.out.println(loginVO);
+
+  		request.setAttribute("hobbies", memberService.hobbiesName(loginVO));
 
   		return "mypage";
   	}

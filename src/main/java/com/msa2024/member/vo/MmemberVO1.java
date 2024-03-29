@@ -20,7 +20,7 @@ public class MmemberVO1 {
 	private List<String> mhabbit;
 	private int    mage;
 	private String memail;
-	
+	private String mgender;
 	private String mpassword2;
 	private String err;
 	//실행 명령 필드 

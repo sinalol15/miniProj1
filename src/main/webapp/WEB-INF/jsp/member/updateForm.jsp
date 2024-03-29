@@ -31,6 +31,13 @@
         <label>이름 : </label>   <input type="text" id="mname" name="mname" value="${member.mname}"><br/>
         <label>나이: </label>    <input type="text" id="mage" name="mage" value="${member.mage}"><br/>
         <label>이메일: </label>  <input type="text" id="memail" name="memail" value="${member.memail}"><br/>
+	    
+	    <h4>취미: </h4>
+        <c:forEach var="hobbies" items="${hobbies}">
+		    <label>${hobbies.hname}</label>
+		    <input type="checkbox" name="mhabbit" value="${hobbies.hnumber}" ${hobbies.checked}><br/>
+		</c:forEach>
+	    
 	    <div>
 	        <input type="submit" value="수정">
 	        <a href="members1?action=view&mid=${member.mid}">취소</a>

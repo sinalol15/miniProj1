@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.msa2024.hobby.vo.MhobbyVO1;
 import com.msa2024.member.dao.MmemberDAO1;
 import com.msa2024.member.vo.MmemberVO1;
 
@@ -53,6 +54,22 @@ public class MmemberService1 extends HttpServlet {
 	
 	public void updateUUID(MmemberVO1 member) {
 		memberDAO.updateUUID(member);
+	}
+	
+	public List<MhobbyVO1> hobbies() {
+		return memberDAO.hobbies();
+	}
+	
+	public List<MhobbyVO1> hobbyFoundCheck(MmemberVO1 member) {
+		return memberDAO.hobbyFoundCheck(member);
+	}
+	
+	public int hobbyFoundInsert(MmemberVO1 member) {
+		return memberDAO.hobbyFoundInsert(member);
+	}
+	
+	public MhobbyVO1 hobbiesName(MmemberVO1 member) {
+		return memberDAO.hobbiesName(member);
 	}
 
 }
