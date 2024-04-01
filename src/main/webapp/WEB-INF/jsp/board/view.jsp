@@ -37,7 +37,7 @@
 		viewForm.submit();
 	}
 	//tmid
-	function jsDelete(a, b) {
+	function jsDelete() {
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			/*
 			//서버의 URL을 설정한다 
@@ -59,7 +59,7 @@
 		}
 	}
 	
-	function jsUpdateForm(a, b) {
+	function jsUpdateForm() {
 		//서버의 URL을 설정한다 
 		action.value = "updateForm";
 	
@@ -74,8 +74,8 @@
 		<input type="button" value="목록" onclick="jsList()">
 		
 		<c:if test="${(!empty loginVO.mname && loginVO.mid eq board.tmid)||(!empty loginVO.mname && loginVO.mid eq 'park')}">
-			<input type="button" value="삭제" onclick="jsDelete('${loginVO.mid}', '${board.tmid}')">
-			<input type="button" value="수정" onclick="jsUpdateForm('${loginVO.mid}', '${board.tmid}')">
+			<input type="button" value="삭제" onclick="jsDelete()">
+			<input type="button" value="수정" onclick="jsUpdateForm()">
 		</c:if>
 		
 	</form>
